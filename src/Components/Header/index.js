@@ -1,8 +1,10 @@
 import React,{Component} from "react";
 import { SearchBar,} from 'antd-mobile';
+import { NavLink } from 'react-router-dom'
+
 import 'antd-mobile/dist/antd-mobile.css';
 import axios from "axios";
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import ReactSwipe from 'react-swipe';
 import {connect} from "react-redux"
 import "./index.css";
@@ -44,12 +46,12 @@ class Header extends Component{
 		
 			<div id="box">
 				<div id="Header">
-					<img src={logo} className="logo"/>
+					<img src={logo} className="logo" alt="pic"/>
 					<SearchBar
 				        placeholder="搜索商品or品牌" className="search"
 				        ref={ref => this.manualFocusInst = ref}
 					/>
-					<i className="iconfont icon-geren9"></i>
+					<NavLink to="/regist"><i className="iconfont icon-geren9"></i></NavLink>
 				</div>
 
 			</div>
@@ -67,7 +69,7 @@ class Header extends Component{
 	                }
 	                {
 	                	this.props.alllist.bannerlist.map(item=>
-	                		<img src={item.imgurl} key={item.id} />)
+	                		<img src={item.imgurl} key={item.id} alt="pic"/>)
 	                }
 	            </ReactSwipe>:[]
 	        }
@@ -84,7 +86,7 @@ class Header extends Component{
 				            		this.props.alllist.templatelist[0].items.map((item)=>{
 				            			return(
 				            				<li key={item.itemid}>
-						            			<img src={item.imgurl}  />
+						            			<img src={item.imgurl}  alt={item.imgname}/>
 						            			{item.imgname}
 				            				</li>
 				            			)
@@ -97,7 +99,7 @@ class Header extends Component{
 
         	{
         		this.props.alllist.templatelist?
-             		<img src={this.props.alllist.templatelist[1].items[0].imgurl} className="punish"/>:[]
+             		<img src={this.props.alllist.templatelist[1].items[0].imgurl} className="punish" alt="pic"/>:[]
          	}
  
  {/*        	{this.props.alllist.pageid}*/}

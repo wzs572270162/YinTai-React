@@ -1,0 +1,78 @@
+#shopping .none{
+    text-align:center;
+}
+#shopping .none img{
+    margin-top:1rem;
+    margin-bottom:0.2rem;
+    height:1rem;
+    width:auto;
+    display: inline-block;
+}
+#shopping .none p{
+    line-height:0.2rem;
+}
+#shopping .none .btn_none{
+    font-size:0.2rem;
+    display:inline-block;
+    width:60%;
+    height:2.5em;
+    border:1px solid red;
+    line-height:2.5em; 
+    margin-top:0.3rem;
+    border-radius:0.5em;
+    color:red;
+}
+#shopping .recommend-title {
+    width: 220px;
+    margin: 0 auto;
+    border: 0;
+    border-top: 1px solid #999;
+    color: #666;
+    
+    text-align: center;
+}
+#shopping .recommend-title legend {
+    display: block;
+    height: 20px;
+    padding: 0 8px 0 32px;
+    margin: 0 auto;
+    line-height: 20px;
+    background-position: 8px center;
+    background-size: 18px;
+    background:url('../../assets/pic/下载.png') no-repeat;
+}
+#shopping .like{
+    height:100%;
+    width:100%;
+    text-align: center;
+    margin-bottom:1rem;
+}
+
+#shopping .like dl{
+    display: inline-block;
+    height:2.5rem;
+    width:30%;
+    overflow: hidden;
+    position: relative;
+}
+#shopping .like dl img{
+    height:100%;
+    width:100%;
+}
+#shopping .like dl dd:nth-of-type(1){
+    text-align:left;
+    font-size:11px;
+    line-height:1.3em;
+}
+#shopping .like dl dd:nth-of-type(2){
+    color:red;
+}
+#shopping .like dl dd:nth-of-type(2){
+    position: absolute;
+   
+    bottom:0
+}
+
+
+   
+    

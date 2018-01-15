@@ -14,15 +14,14 @@ import {
 
 import Home from "../Components/Home";
 import Fenlei from "../Components/Fenlei";
-import Card from "../Components/Card";
-// import Film from "../Components/Film";
+
+
 import App from "../Components/App";
 import Detail from "../Components/Detail";
-import Header from "../Components/Header";
-import Qiangxian from "../Components/Qiangxian";
 
-/*import NowPlaying from "../Components/NowPlaying";
-import ComingSoon from "../Components/ComingSoon";*/
+import Qiangxian from "../Components/Qiangxian";
+import Shopping from '../Components/Shopping';
+
 
 //jsx 语法 解析 需要react 模块
 const router = (
@@ -31,23 +30,13 @@ const router = (
 		<App>
 			<Switch>
 			
-				<Route path="/card" component={Card}/>
+				
 				
 				<Route path="/home" component={Home}/>
 				<Route path="/detail" component={Detail}/>
 				<Route path="/fenlei" component={Fenlei}/>
 				<Route path="/qiangxian" component={Qiangxian}/>
-
-				{/*<Route path="/film" render={()=>
-					<Film>
-						<Switch>
-							<Route path="/film/nowplaying" component={NowPlaying}/>
-							<Route path="/film/comingsoon" component={ComingSoon}/>
-							<Redirect from="/film" to='/film/nowplaying' component={Home} />
-						</Switch>
-					</Film>
-				}/>*/}
-
+				<Route path="/shopping" component={Shopping}/>
 				<Redirect from="/" to='/home' component={Home} />
 
 			</Switch>

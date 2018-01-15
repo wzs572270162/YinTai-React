@@ -1,0 +1,46 @@
+#qiangxian footer{
+    width:100%;
+    height:2rem;
+    background: #f1f1f1;
+}
+#qiangxian footer .top ul{
+    
+    display:flex;
+    justify-content: space-around;
+    line-height:35px;
+}
+#qiangxian footer .top ul a{
+    color:#999999;
+}
+#qiangxian footer .bottom{
+    
+    display:flex;
+    justify-content: space-around;
+    line-height:35px;
+}
+#qiangxian footer .bottom a{
+    color:rgb(37, 33, 33)
+}
+#qiangxian footer .desc{
+    color:#999999;
+    text-align: center;
+    
+    line-height:35px;
+}
+#qiangxian .discount{
+    border-radius:0 8px 8px 0;
+    background: red;
+}
+#qiangxian span.right{
+    color:red;
+    display: block;
+    width:0.85rem;
+    background: blue;
+    text-align:right;
+    background: url('../../assets/pic/ctd-icon-small.png') no-repeat
+}
+#qiangxian p{
+    display: flex;
+    justify-content: space-between;
+    border-bottom:1px solid #ccc;
+}

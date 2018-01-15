@@ -1,0 +1,25 @@
+#Nav_bottom footer{
+	display: block;
+	width:100%;
+	height:50px;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	background:white;
+	position: fixed;
+	bottom:0;
+	border-top:1px solid #ccc;
+	z-index: 10;
+	
+	
+}
+#Nav_bottom footer i{
+	font-size:18px;
+}
+#Nav_bottom footer dl{
+	margin-top:7px;
+}
+#Nav_bottom footer .activecolor{
+	color:#e5004f;
+}

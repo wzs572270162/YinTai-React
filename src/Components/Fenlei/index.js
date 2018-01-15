@@ -1,10 +1,10 @@
 import React,{Component} from "react";
 import "./index.css";
 import axios from "axios";
-import { NavLink } from "react-router-dom"
+// import { NavLink } from "react-router-dom"
 import 'antd-mobile/dist/antd-mobile.css';
 import {connect} from "react-redux"
-import { Icon, Grid,Popover, NavBar,SearchBar, Button} from 'antd-mobile';
+import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
 
 const Item = Popover.Item;
 
@@ -116,7 +116,7 @@ class Fenlei extends Component{
 							return(
 								// console.log(item.categoryid),
 								<li key={item.categoryid} className="leimuLi">
-									<img src={item.imageurl} />
+									<img src={item.imageurl} alt="pic"/>
 								</li>
 							)
 						})
