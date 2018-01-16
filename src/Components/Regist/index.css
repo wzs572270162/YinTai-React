@@ -1,0 +1,37 @@
+#Regist .all{
+	width:94%;
+	height: 0.4rem;
+	background: #fff;
+	padding: 0.1rem;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	text-align: center;margin-top: 0.2rem;
+}
+#Regist .all1{margin-top:0.02rem;	margin-bottom: 0.2rem;}
+
+#Regist .all .input{
+	float: left;
+	height: 0.4rem;width: 2.6rem;
+	outline: 0;
+	border: 0;display: block;
+}
+
+body{background:#f3f3f3;}
+
+#Regist .all .font{
+	width:0.55rem;
+	height: 0.4rem;
+	line-height: 0.4rem;background: #fff;float: left;
+}
+#Regist .iconfont{
+	font-size: 40px;
+}
+
+#Regist .qita{width: 100%;margin-top:0.1rem;}
+#Regist .qita .left a{float: left;margin: 0 0.3rem;font-weight: bold;
+ 		color:#a5a5a5;} 
+#Regist .qita .right{float: right;margin: 0 0.3rem;color: #e5004f}
+#Regist .clear{clear: both;margin-top:0.5rem;padding: 0.15rem;width: 90%;font-size: 13px;color:#666666}
+
+#Regist .clear .p_2{margin-top:0.2rem;}
+.kefu{width:100%;height: 0.3rem;margin-top:0.5rem;text-align: center;color:#a5a5a5;font-size: 13px;}

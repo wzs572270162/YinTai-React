@@ -47,7 +47,6 @@ class Fenlei extends Component{
 	//   }
 	componentDidMount(){
 	   
-	    
 	    if(this.props.xuanxiangList.length!==0){
 
 		}else{
@@ -95,7 +94,7 @@ class Fenlei extends Component{
 					                    </Item>),
 
 					                    (<Item key="7" value="button ct">
-					                      	<NavLink to="/regist"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
+					                      	<NavLink to="/user"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
 					                    </Item>),
 
 					                  ]} 
@@ -129,7 +128,7 @@ class Fenlei extends Component{
 				            			{item.name}
 		            				</li>
 		            			)
-		            		}):[]
+		            	}):[]
 	            	}
 				</ul>
 			</div>
@@ -152,7 +151,7 @@ class Fenlei extends Component{
 							this.props.fenleiList.recommend.categoryrecommend.map((item)=>{
 								return(
 									// console.log(item.categoryid),
-									<li key={item.categoryid} className="leimuLi">
+									<li key={item.categoryid} className="leimuLi" onClick={this.handle.bind(this,item.name)}>
 										<img src={item.imageurl} alt="pic"/>
 										<p>{item.name}</p>
 									</li>
@@ -163,7 +162,9 @@ class Fenlei extends Component{
 					</ul>:[]
 				}	
 			</div>
+
 			{/*推荐品牌*/}
+
 			<div className="tuijian_pinpai">
 				<div className="aaaa">
 					{
@@ -178,7 +179,7 @@ class Fenlei extends Component{
 							this.props.fenleiList.brand.brandrecommend.map((item)=>{
 								return(
 									// console.log(item.categoryid),
-									<li key={item.categoryid} className="leimuLi">
+									<li key={item.categoryid} className="leimuLi" onClick={this.handle.bind(this,item.name)}>
 										<img src={item.imageurl} alt="pic"/>
 									</li>
 								)
@@ -205,7 +206,7 @@ class Fenlei extends Component{
 							this.props.fenleiList.more.morerecommend.map((item)=>{
 								return(
 									// console.log(item.categoryid),
-									<li key={item.categoryid} className="leimuLi">
+									<li key={item.categoryid} className="leimuLi" onClick={this.handle.bind(this,item.name)}>
 										{item.name}
 									</li>
 								)
@@ -233,6 +234,11 @@ class Fenlei extends Component{
 		lis[index].className='active1';
 		this.props.getFenLeiList(id);
 	}
+
+	handle(id){
+		this.props.history.push(`/detail/${id}`)
+	}
+
 }
 
 

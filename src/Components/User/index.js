@@ -1,72 +1,39 @@
 import React,{Component} from "react";
 import "./index.css";
-import { Icon, Grid,Popover, NavBar,List, InputItem,} from 'antd-mobile';
-import "../../assets/font/iconfont.css"
+import User1 from "./User1"
+import User2 from "./User2"
+import axios from "axios"
 
-const Item = Popover.Item;
 
-const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
-class Card extends Component{
+class User extends Component{
 	constructor(){
 		super();
+		this.state={
+			show:true
+		}
+	}	
+
+	componentWillMount() {
+	    axios.get(`/users/judge`).then((res)=>{
+	    	console.log(res);
+	    	console.log(res.data.code)
+	    	if(res.data.code==1){
+	    		this.setState({
+	    			show:false
+	    		})
+	    	}
+
+	    })
 	}
 
 	render(){
 		return <div id="User">
-			
-			<NavBar
-			      mode="light"
-			      icon={<Icon type="left" />}
-			      onLeftClick={() => {this.props.history.push('/')}}
-			      rightContent={
-			                <Popover mask
-			                  overlayClassName="fortest"
-			                  overlayStyle={{ color: 'currentColor' }}
-			                  visible={false}
-			                  overlay={[
-			                    (<Item key="4" value="scan" /*icon={myImg('tOtXhkIWzwotgGSeptou')}*/ data-seed="logId">
-			                    	<i className="iconfont icon-home" style={{ fontSize: 26,marginRight:10 }}></i>首页
-			                    </Item>),
-
-			                    (<Item key="5" value="special" style={{ whiteSpace: 'nowrap' }}>
-			                    	<i className="iconfont icon-fenlei" style={{ fontSize: 26,marginRight:10 }}></i>分类
-			                    </Item>),
-
-			                    (<Item key="6" value="button ct">
-			                      <i className="iconfont icon-gouwuche" style={{ fontSize: 32,marginRight:10 }}></i>
-			                      购物车
-			                    </Item>),
-
-			                    (<Item key="7" value="button ct">
-			                      	<i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰
-			                    </Item>),
-
-			                  ]} 
-			                  	onVisibleChange={this.handleVisibleChange}
-			                  >
-			                  <div>
-			                    <Icon type="ellipsis" />
-			                  </div>
-			                </Popover>
-			              }
-			    >登录</NavBar>
-
-
-
-			     <div className="all">
-			         <div className="font">
-			         	<i className="iconfont icon-geren9"></i>
-
-			         </div>
-			         <input type="text"  className="input"/>
-
-			     </div>
-
-
-
-
-		</div>
+				{
+					this.state.show?<User1></User1>:<User2></User2>
+				}
+				
+			</div>
 	}
 }
 
-export default Card;
+export default User;

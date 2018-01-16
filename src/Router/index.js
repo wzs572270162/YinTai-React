@@ -21,6 +21,8 @@ import Detail from "../Components/Detail";
 
 import Qiangxian from "../Components/Qiangxian";
 import Shopping from '../Components/Shopping';
+import User from '../Components/User';
+import Regist from '../Components/Regist';
 
 
 //jsx 语法 解析 需要react 模块
@@ -30,10 +32,16 @@ const router = (
 		<App>
 			<Switch>
 			
-				
+			
 				
 				<Route path="/home" component={Home}/>
+				
 				<Route path="/fenlei" component={Fenlei}/>
+				<Route path="/user" component={User}/>
+				<Route path="/regist" component={Regist} />
+
+
+
 				<Route path="/qiangxian" component={Qiangxian}/>
 				<Route path="/shopping" component={Shopping}/>
 				<Route path="/detail/:index" component={Detail}/>

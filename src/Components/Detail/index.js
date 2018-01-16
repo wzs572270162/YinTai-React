@@ -1,5 +1,21 @@
 import React,{Component} from "react";
 import "./index.css";
+<<<<<<< HEAD
+=======
+import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
+import { NavLink } from 'react-router-dom'
+
+
+const Item = Popover.Item;
+const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
+class Detail extends Component{
+	constructor(){
+		super();
+		this.state={
+			aaa:"fsdfsd"
+		}
+	}
+>>>>>>> 065bbef725732720263346f10226bafdc3a12999
 
 import { NavLink } from 'react-router-dom'
 import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
