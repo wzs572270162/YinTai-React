@@ -31,7 +31,7 @@ export default class Nav_bottom extends Component {
                             <dd>购物车</dd>
                         </dl>
                     </NavLink>
-                    <NavLink to="/regist" activeClassName="activecolor">
+                    <NavLink to="/user" activeClassName="activecolor">
                         <dl>
                             <dt><i className="iconfont icon-geren9"></i></dt>
                             <dd>我的银泰</dd>

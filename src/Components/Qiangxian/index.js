@@ -72,7 +72,7 @@ class Card extends Component{
 											</Item>),
 
 											(<Item key="7" value="button ct">
-												<NavLink to="/regist"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
+												<NavLink to="/user"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
 											</Item>),
 
 										]} 
