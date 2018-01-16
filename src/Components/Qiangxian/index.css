@@ -1,6 +1,6 @@
 #qiangxian footer{
     width:100%;
-    height:2rem;
+    height:3rem;
     background: #f1f1f1;
 }
 #qiangxian footer .top ul{
@@ -27,6 +27,11 @@
     
     line-height:35px;
 }
+#qiangxian .desc p{
+    display: inline-block;
+    border:0;
+    
+}
 #qiangxian .discount{
     border-radius:0 8px 8px 0;
     background: red;
@@ -43,4 +48,5 @@
     display: flex;
     justify-content: space-between;
     border-bottom:1px solid #ccc;
+    text-align:center;
 }

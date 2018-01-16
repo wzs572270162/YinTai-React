@@ -10,6 +10,7 @@
 	height: 0.6rem;
 	position: fixed;
 	z-index: 999;
+	background: #fff;
 }
 
 #Header .icon-geren9{
@@ -57,3 +58,17 @@ body{
 }
 
 #Headerall .punish{width: 100%;margin-top:0.2rem;}
+
+#Headerall .first img{
+	width:50%;float: left;padding: 1px;box-sizing: border-box;
+}
+
+#Headerall .box{
+	width:100%;
+	height: 0.06rem;
+	background: #f1f1f1
+}
+
+#Headerall .tong{
+	width:100%;
+}
