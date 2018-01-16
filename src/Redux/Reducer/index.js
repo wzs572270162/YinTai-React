@@ -6,6 +6,7 @@ const reducer=(state=[],action)=>{
 		// console.log(payload)
 		
 			return {...state,...payload}
+			
 		default:
 			return state;
 	}
@@ -209,8 +210,5 @@ const reducer13=(state=[],action)=>{
 	}
 
 }
-
-
-
 
 export {reducer,reducer2,reducer3,reducerZong}

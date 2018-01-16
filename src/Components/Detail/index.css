@@ -1,0 +1,54 @@
+#detail .context dt{
+    width:100%;
+    height:3.5rem;
+    text-align: center;
+}
+#detail .context dt img{
+    display: inline-block;
+    height:100%;
+    width:auto;
+}
+#detail .context dd:nth-of-type(1){
+    font-size:1.2em;
+}
+#detail .context dd:nth-of-type(2){
+    margin-top:0.5em;
+}
+#detail .context dd:nth-of-type(2) span:nth-of-type(1){
+    color:red;
+    font-size:1.7em;
+}
+#detail .context dd:nth-of-type(2) span:nth-of-type(2){
+    color:#999999;
+    text-decoration:line-through;
+}
+#detail .context dd:nth-of-type(2) span:nth-of-type(3){
+    color:#999999;
+    
+}
+#detail .add{
+    height:2.5em;
+    line-height: 2.5em;
+    text-align:center;
+    display: flex;
+    width:100%;
+    position: fixed;
+    bottom:0;
+}
+#detail .add a{
+    flex:1;
+}
+#detail .add span{
+    flex:3;
+}
+#detail .send_add{
+    background:#f60;
+}
+#detail .send_buy{
+    background:red;
+}
+
+
+
+
+

@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import "./index.css";
 import axios from "axios";
+import { is } from 'immutable';
 import { NavLink } from 'react-router-dom'
 
 import 'antd-mobile/dist/antd-mobile.css';
@@ -23,8 +24,28 @@ class Fenlei extends Component{
 
 		}
 	}
-
-	componentDidMount() {
+	// shouldComponentUpdate(nextProps = {}, nextState = {})=>{
+	// 	const thisProps = this.props || {}, thisState = this.state || {};
+	  
+	// 	if (Object.keys(thisProps).length !== Object.keys(nextProps).length ||
+	// 		Object.keys(thisState).length !== Object.keys(nextState).length) {
+	// 	  return true;
+	// 	}
+	  
+	// 	for (const key in nextProps) {
+	// 	  if (!is(thisProps[key], nextProps[key])) {
+	// 		return true;
+	// 	  }
+	// 	}
+	  
+	// 	for (const key in nextState) {
+	// 	  if (thisState[key] !== nextState[key] || !is(thisState[key], nextState[key])) {
+	// 		return true;
+	// 	  }
+	// 	}
+	// 	return false;
+	//   }
+	componentDidMount(){
 	   
 	    
 	    if(this.props.xuanxiangList.length!==0){
@@ -104,7 +125,7 @@ class Fenlei extends Component{
 		            	this.props.xuanxiangList.data?
 		            		this.props.xuanxiangList.data.map((item,index)=>{
 		            			return(
-		            				<li key={item.id} onClick={this.handleClick.bind(this,index,item.id)}>
+		            				<li key={item.id} onClick={this.handleClick.bind(this,index,item.id)} className={index == 0 ? "active1" : ""}>
 				            			{item.name}
 		            				</li>
 		            			)
@@ -228,7 +249,8 @@ export default connect(
 		getXuanList:()=>{
 
 		 	return (dispatch)=>{
-		 		axios.get(`/Services/Proxy.ashx?r=0.12883658756248795&methodName=products.category.getcategory_3.0.0&method=products.category.getcategory&ver=3.0.0`).then(res=>{
+				 axios.get(`/Services/Proxy.ashx?r=0.12883658756248795&methodName=products.category.getcategory_3.0.0&method=products.category.getcategory&ver=3.0.0`)
+				 .then(res=>{
 		 			console.log(res);
 					dispatch({
 						type:"XUANXIANG_LIST",

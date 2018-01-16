@@ -33,10 +33,10 @@ const router = (
 				
 				
 				<Route path="/home" component={Home}/>
-				<Route path="/detail" component={Detail}/>
 				<Route path="/fenlei" component={Fenlei}/>
 				<Route path="/qiangxian" component={Qiangxian}/>
 				<Route path="/shopping" component={Shopping}/>
+				<Route path="/detail/:index" component={Detail}/>
 				<Redirect from="/" to='/home' component={Home} />
 
 			</Switch>

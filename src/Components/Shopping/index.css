@@ -72,6 +72,15 @@
    
     bottom:0
 }
+#shopping .shopping_list{
+   display:flex;
+   justify-content: space-around;
+   line-height:3em;
+}
+#shopping .shopping_list input{
+    display:inline-block;
+ }
+
 
 
    
