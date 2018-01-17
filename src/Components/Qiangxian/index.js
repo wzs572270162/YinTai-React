@@ -26,21 +26,26 @@ class Card extends Component{
 			imgurl:'',
 			discount:'',
 			title:'',
-			time:''
+			time:'',
+			data:[]
 		}
 	}
 	componentDidMount(){
 		axios.get('/Services/Proxy.ashx?r=0.30376459503410946&type=5&page_index=1&displaycount=30&methodName=products.limitbuy_1.2.0&method=products.limitbuy&ver=2.1')
 		.then(res=>{
-			console.log(res.data.data.activityinfo[0].activitylist[0])
-			this.setState({
-
-				imgurl:res.data.data.activityinfo[0].activitylist[0].imgurl,
-				discount:res.data.data.activityinfo[0].activitylist[0].discount,
-				title:res.data.data.activityinfo[0].activitylist[0].title,
-				time:res.data.data.activityinfo[0].activitylist[0].leftsecond
-			})
+			console.log(res.data.data.activityinfo.length)
+			if(res.data.data.activityinfo.length!==this.state.data.length){
+				this.setState({
+	
+					imgurl:res.data.data.activityinfo[0].activitylist[0].imgurl,
+					discount:res.data.data.activityinfo[0].activitylist[0].discount,
+					title:res.data.data.activityinfo[0].activitylist[0].title,
+					time:res.data.data.activityinfo[0].activitylist[0].leftsecond
+				})
+			}
+			return
 			
+				
 		})
 	}
 	render(){

@@ -4,6 +4,7 @@ import clearcart from '../../assets/pic/clearcart2.png'
 import { NavLink } from 'react-router-dom'
 import { Icon,Popover, NavBar,List, Stepper} from 'antd-mobile';
 import axios from 'axios'
+
 const Item = Popover.Item;
 export default class Shopping extends Component {
     constructor(){
@@ -32,7 +33,77 @@ export default class Shopping extends Component {
         console.log(index);
         this.props.history.push(`/detail/${index}`)
     }
+
+    // 全选
+    checkedbox_all(){
+        let checkedbox_all=document.querySelector('#shopping .checkedbox_all');
+        console.log(checkedbox_all)
+        let checkbox_all=document.querySelectorAll('#shopping .checkbox');
+        checkbox_all.forEach((item,index) => {
+            if(checkedbox_all.checked){
+                item.checked=true;
+            }else{
+                item.checked=false;
+            }
+        });
+    }
+    // 删除选中的input 
+    remove(){
+        console.log(document.querySelectorAll('#shopping .checkbox'))
+        let checkbox_all=document.querySelectorAll('#shopping .checkbox');
+        checkbox_all.forEach((item,index) => {
+            if(item.checked){
+                // checkbox_all.remove(index).parent
+                item.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.
+                removeChild(item.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+            }
+        });
+    }
+    //数量加减
+    // small(){
+    //     let num=document.querySelectorAll('#shopping .number');
+    //     let count=num.innerHTML--
+    //     if(count<=1){
+    //         num.innerHTML=1
+    //     }
+    //     console.log(typeof(count))
+    //     console.log(count)
+    // }
+    //  large(){
+    //     let num=document.querySelectorAll('#shopping .number');
+    //     let count=num.innerHTML++
+        
+    //     if(count>=10){
+    //         num.innerHTML=10
+    //     }
+    //         console.log(typeof(count))
+    //         console.log(count)
+    // }
+    
     render() {
+        let num=document.querySelectorAll('#shopping .number');
+        let small=document.querySelectorAll('#shopping .small');
+        let large=document.querySelectorAll('#shopping .large');
+        let countbig=num.innerHTML
+        let countsmall=num.innerHTML;
+        console.log(num)
+        for (let i = 0; i < small.length; i++) {
+  	
+            small[i].onclick = function() {
+                
+              console.log(i);
+              console.log(num[i])
+              num[i].innerHTML+=countbig;
+            }
+        }
+        for (let i = 0; i < large.length; i++) {
+  	
+            large[i].onclick = function() {
+                
+              console.log(i);
+              num[i].innerHTML-=countsmall;
+            }
+        }
         return (
             <div id="shopping">
             <NavBar
@@ -80,28 +151,33 @@ export default class Shopping extends Component {
                 </div>
                 <br/>
                 {/* 购物车数据 */}
-						<List>
-							<List.Item
-							wrap
-							extra={
-								<Stepper
-								style={{ width: '100%', minWidth: '100px' }}
-								showNumber
-								max={10}
-								min={1}
-								value={this.state.val}
-								onChange={this.onChange}
-								/>}
-							>
+                <div className="shopping_all">
+                         
+                        <input id='checkedbox_all' type="checkbox" className="checkedbox_all" defaultChecked onClick={this.checkedbox_all.bind(this)}/>
+                        <label htmlFor="checkedbox_all">全选</label>
+						
                             <div className="shopping_list">
-                                <div><input type="checkbox" defaultChecked/></div>
+                                <div><input type="checkbox" defaultChecked className="checkbox"/></div>
                                 
                                 <img src="https://p10.ytrss.com/product/21/489/7495/GridImage/yintai_8dca1100-dbdf-4f7d-b4e6-927d9549774e.jpg" alt="pic" style={{width:"auto",height:"3em"}}/>
                                 <span className="price">价格</span>
+                                <div className="active_box small"><span className="active">-</span></div>
+                                <div className="number">1</div>
+                                <div className="active_box large"><span className="active">+</span></div>
                             </div>
-							</List.Item>
-						</List>
-                        <button className="remove">删除</button>
+                            <div className="shopping_list">
+                                <div><input type="checkbox" defaultChecked className="checkbox"/></div>
+                                
+                                <img src="https://p10.ytrss.com/product/21/489/7495/GridImage/yintai_8dca1100-dbdf-4f7d-b4e6-927d9549774e.jpg" alt="pic" style={{width:"auto",height:"3em"}}/>
+                                <span className="price">价格</span>
+                                <div className="active_box small"><span className="active">-</span></div>
+                                <div className="number">1</div>
+                                <div className="active_box large"><span className="active">+</span></div>
+                            </div>
+							
+                        
+                        <button className="remove" onClick={this.remove.bind(this)}>删除</button>
+                </div>
 
                 <div className="like">
                     <fieldset className="recommend-title">

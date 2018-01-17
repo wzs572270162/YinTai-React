@@ -80,6 +80,25 @@
 #shopping .shopping_list input{
     display:inline-block;
  }
+ #shopping .shopping_list .active{
+    display:block;
+    width:1.5em;
+    height:1.5em;
+    border:1px solid red;
+    line-height:1.5em;
+    border-radius:0.3em;
+    
+ }
+ #shopping .shopping_list .active_box{
+    padding-top:0.75em;
+    text-align: center;
+ }
+ #shopping .shopping_list .number{
+    width:1em;
+    text-align:center;
+ }
+ 
+
 
 
 
