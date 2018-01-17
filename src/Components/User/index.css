@@ -1,3 +1,7 @@
 #User .isnone{
 	display: none;
 }
+
+#User .isblock{
+	display: block;
+}

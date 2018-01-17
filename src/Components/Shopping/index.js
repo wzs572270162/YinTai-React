@@ -133,8 +133,8 @@ export default class Shopping extends Component {
                                     <NavLink to="/user"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
 				                    </Item>),
 
-				                    (<Item key="7" value="button ct" style={{color:"red"}}>
-                                    <i className="iconfont icon-iconset0330" style={{ fontSize: 26,marginRight:10 }}></i>编辑
+				                    (<Item key="7" value="button ct" style={{color:"red"}}><NavLink to="/fenlei">
+                                    <i className="iconfont icon-iconset0330" style={{ fontSize: 26,marginRight:10 }}></i>分类</NavLink>
 				                    </Item>)
 
 				                  ]} 
@@ -181,6 +181,9 @@ export default class Shopping extends Component {
                 </div> */}
 
                 <br/>
+
+
+                
                 {/* 购物车数据 */}
                 <div className="shopping_all">
                          
