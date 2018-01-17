@@ -1,26 +1,11 @@
 import React,{Component} from "react";
 import "./index.css";
-<<<<<<< HEAD
-=======
-import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
-import { NavLink } from 'react-router-dom'
-
-
-const Item = Popover.Item;
-const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
-class Detail extends Component{
-	constructor(){
-		super();
-		this.state={
-			aaa:"fsdfsd"
-		}
-	}
->>>>>>> 065bbef725732720263346f10226bafdc3a12999
 
 import { NavLink } from 'react-router-dom'
 import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import axios from "axios";
+
 const Item = Popover.Item;
 class Detail extends Component{
 	constructor(props){
@@ -42,10 +27,7 @@ class Detail extends Component{
             })
         })
     }
-	addshop(){
-		console.log("添加")
-		console.log(this.state.datalist[this.state.index].imageUrl)
-	}
+	
 	render(){
 		return (
 		<div id="detail">
@@ -111,6 +93,22 @@ class Detail extends Component{
 		</div>
 		)
 	}
+
+	addshop(){
+		// console.log("添加");
+		// console.log(this.state.datalist[this.state.index].imageUrl);
+		// var that=this;
+		axios.post(`/users/create`,{
+			name:this.state.datalist[this.state.index].itemName,
+			price:this.state.datalist[this.state.index].salePrice,
+			imgUrl:this.state.datalist[this.state.index].imageUrl
+		}).then((res)=>{
+			console.log(res);
+		})
+
+	}
+
+
 }
 
 export default Detail;

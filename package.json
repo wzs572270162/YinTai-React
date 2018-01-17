@@ -28,17 +28,16 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0"
   },
-
   "proxy": {
-
     "/Services": {
-                "target": "https://m.yintai.com",
-                "host": "m.yintai.com",
-                "changeOrigin": true
+      "target": "https://m.yintai.com",
+      "host": "m.yintai.com",
+      "changeOrigin": true
     },
     "/users": {
-                "target": "http://localhost:3001","host": "localhost:3001","changeOrigin": true
+      "target": "http://localhost:3001",
+      "host": "localhost:3001",
+      "changeOrigin": true
     }
-  }  
-
+  }
 }

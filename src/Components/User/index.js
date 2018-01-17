@@ -9,17 +9,24 @@ class User extends Component{
 	constructor(){
 		super();
 		this.state={
-			show:true
+			show:false,
+			aaa:false
 		}
 	}	
 
-	componentWillMount() {
+	componentDidMount() {
 	    axios.get(`/users/judge`).then((res)=>{
 	    	console.log(res);
 	    	console.log(res.data.code)
 	    	if(res.data.code==1){
 	    		this.setState({
-	    			show:false
+	    			
+	    			aaa:true
+	    		})
+	    	}else{
+	    		this.setState({
+	    			
+	    			show:true
 	    		})
 	    	}
 
@@ -28,10 +35,17 @@ class User extends Component{
 
 	render(){
 		return <div id="User">
-				{
-					this.state.show?<User1></User1>:<User2></User2>
-				}
-				
+
+
+				<div className={this.state.show?"isblock":"isnone"}>
+					<User1></User1>
+				</div>
+
+
+				<div className={this.state.aaa?"isblock":"isnone"}>
+					<User2></User2>
+				</div>
+
 			</div>
 	}
 }

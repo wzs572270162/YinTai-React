@@ -18,7 +18,7 @@
     height:2.5em;
     border:1px solid red;
     line-height:2.5em; 
-    margin-top:0.3rem;
+    margin-top:0.2rem;
     border-radius:0.5em;
     color:red;
 }
@@ -45,6 +45,7 @@
     height:100%;
     width:100%;
     text-align: center;
+    margin-top:0.24rem;
     margin-bottom:1rem;
 }
 
@@ -82,6 +83,4 @@
  }
 
 
-
-   
     

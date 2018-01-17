@@ -11,6 +11,7 @@ export default class Shopping extends Component {
         this.state={
             datalist:null,
             val:1,
+            shuju:[]
         }
     }
     onChange=(val) => {
@@ -25,6 +26,12 @@ export default class Shopping extends Component {
             },()=>{
                 console.log(this.state.datalist) 
             })
+        });
+        axios.get(`/users/goodsShow`).then((res)=>{       
+            this.setState({
+                shuju:res.data
+            });
+           
         })
 
     }
@@ -32,6 +39,8 @@ export default class Shopping extends Component {
         console.log(index);
         this.props.history.push(`/detail/${index}`)
     }
+
+
     render() {
         return (
             <div id="shopping">
@@ -55,7 +64,7 @@ export default class Shopping extends Component {
 				                    </Item>),
 
 				                    (<Item key="6" value="button ct">
-                                    <NavLink to="/regist"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
+                                    <NavLink to="/user"><i className="iconfont icon-geren9" style={{ fontSize: 26,marginRight:10 }}></i>我的银泰</NavLink>
 				                    </Item>),
 
 				                    (<Item key="7" value="button ct" style={{color:"red"}}>
@@ -72,36 +81,42 @@ export default class Shopping extends Component {
 				              }
 				    >购物车
 				</NavBar>
-                <div className="none">
-                    <img src={clearcart} alt="clearcart"/>
-                    <p>购物车空空哒!</p>
-                    <p>快去随便逛逛吧~</p>
-                    <NavLink to="/" className="btn_none">随便逛逛</NavLink>
+
+
+                
+               
+
+                <div className="houtai">
+                    {
+                        this.state.shuju.length?
+                        <ul>
+                            {
+                                this.state.shuju.map((item)=>{
+                                    return(
+                                        <li key={item._id}>
+                                            <img src={item.img_url} />
+                                            <span>{item.goods_name}</span>
+                                            <p>{item.price}</p>
+                                        </li>
+                                    )
+                                    
+                                })
+                            }
+                      
+                        </ul>:
+                        <div className="none">
+                            <img src={clearcart} alt="clearcart"/>
+                            <p>购物车空空哒!</p>
+                            <p>快去随便逛逛吧~</p>
+                            <NavLink to="/" className="btn_none">随便逛逛</NavLink>
+                        </div>
+                        
+                    }
                 </div>
-                <br/>
-                {/* 购物车数据 */}
-						<List>
-							<List.Item
-							wrap
-							extra={
-								<Stepper
-								style={{ width: '100%', minWidth: '100px' }}
-								showNumber
-								max={10}
-								min={1}
-								value={this.state.val}
-								onChange={this.onChange}
-								/>}
-							>
-                            <div className="shopping_list">
-                                <div><input type="checkbox" defaultChecked/></div>
-                                
-                                <img src="https://p10.ytrss.com/product/21/489/7495/GridImage/yintai_8dca1100-dbdf-4f7d-b4e6-927d9549774e.jpg" alt="pic" style={{width:"auto",height:"3em"}}/>
-                                <span className="price">价格</span>
-                            </div>
-							</List.Item>
-						</List>
-                        <button className="remove">删除</button>
+
+
+                        
+
 
                 <div className="like">
                     <fieldset className="recommend-title">

@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var UserModel = require("../model/UserModel.js");
-
+var GoodsModel = require("../model/GoodsModel.js");
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// router.post('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 router.post('/login', function(req, res, next) {
 	console.log("000");
@@ -70,6 +70,55 @@ router.get('/judge',function(req,res,next){
 })
 
 
+router.post('/create', function(req, res, next) {
+	  if(!req.session || !req.session.username) {
+		var result = {
+			code: -77,
+			message: "您还没有登录，请先登录"
+		}
+		res.send(JSON.stringify(result));
+		return;
+	  }
+
+	  var goodsM = new GoodsModel();
+	  goodsM.username = req.session.username;
+	  goodsM.goods_name = req.body.name;
+	  goodsM.price = req.body.price;
+	  goodsM.img_url = req.body.imgUrl;
+	  goodsM.count = req.body.count;
+
+	  goodsM.save(function(err){
+		var result = {
+			code: 1
+		} 
+		if(err) {
+			result.code = -88;
+			result.message = "保存失败";
+		}
+		res.send(JSON.stringify(result));
+	  })
+});
+
+
+router.get('/goodsShow', function(req, res, next) {
+	console.log("000");
+	
+	GoodsModel.find({username: req.session.username}, (err, docs)=>{
+		var result = {
+			code: 1,
+			message:'获取成功'
+		}
+		
+		if(err || docs.length == 0) {
+			result.code = -66;
+			result.message = "无效的用户名";
+			res.send(JSON.stringify(result));
+			return;
+		}
+		res.send(docs);
+		
+	})
+});
 
 
 
