@@ -120,7 +120,16 @@ router.get('/goodsShow', function(req, res, next) {
 	})
 });
 
+router.get('/destroy',function(req,res,next){
+	req.session.destroy((err)=>{
+		if(!err){
+			res.send('success')
+		}else{
+			res.send('fail')
+		}
+	})
 
+})
 
 
 module.exports = router;

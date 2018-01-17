@@ -90,6 +90,7 @@ class User1 extends Component{
 	}
 
 	login(){
+
 		axios.post(`users/login`,{
 			user: document.querySelector('#user').value,
             psw: document.querySelector('#password').value
@@ -97,6 +98,7 @@ class User1 extends Component{
 			console.log(res);
 			if(res.data.code===1){
 				Toast.success('登录成功 !!!', 2);
+				this.props.event();
 			}else{
 				Toast.fail('用户名或密码错误',2);
 			}

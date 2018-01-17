@@ -7,8 +7,40 @@ body{
 	font-size: 16px;
 	width:100%;
 	height: 100%;
+	background: white;
 }
 
+#User2{
+	background: white;
+	height: 7.2rem;
+}
 img{
 	display: block;
 }
+#User2 .beijing{width:100%;height: 1.05rem;background: #ff7ba9;text-align: center;
+	padding-top: 0.15rem;}
+#User2 .beijing div{width:0.72rem;height: 0.72rem;border-radius: 50%;margin:0 auto;}
+#User2 .beijing div img{width:100%;height: 100%;}
+#User2 .beijing p{margin-top: 0.06rem;font-size: 13px;}
+
+#User2 .nav .lp,#User2 .nav1 .lp{border: 0;}
+#User2 .nav{display: flex;justify-content: space-around;margin-top:0.04rem;padding: 0.1rem 0}
+#User2 .nav i{font-size: 26px;}
+#User2 .nav li{border-right: 1px solid #ccc;width:0.90rem;text-align: center;color:#8b8b8b;}
+#User2 .nav li p{margin-top:0.06rem;}
+#User2 #box{width:100%;height: 0.12rem;background: #f1f1f1;}
+#User2 #box1{width:100%;height: 0.12rem;background: #f1f1f1;}
+#User2 .nav1{display: flex;justify-content: space-around;padding: 0.1rem 0;margin-top:0.14rem;}
+#User2 .nav1 li{border-right: 1px solid #ccc;width:1.20rem;text-align: center;color:#8b8b8b;}
+#User2 .nav2 {display: flex;justify-content: space-around;flex-wrap: wrap;margin-top:0.1rem;}
+#User2 .nav2 li{width:49%;display: flex;height: 0.6rem;font-size: 12px;line-height: 0.2rem;
+	border-top:1px solid #ccc;padding-top: 0.1rem;}
+#User2 .nav2 li>h4{flex:10;margin-left:0.1rem;color:#666666}
+#User2 .nav2 li div{flex:7;}
+#User2 .nav2 li img{width:0.25rem;height: 0.25rem;display: block;float: right;margin-top: 0.1rem}
+#User2 .lo{border-right: 1px solid #ccc;}
+.jijip{margin-bottom: 0.4rem}
+.jijip div{height: 0.46rem;width: 100%;line-height: 0.46rem;padding: 0 0.1rem;box-sizing: border-box;
+color:#bcbcbc;}
+.jijip .span1{float: left;vertical-align: center}
+.jijip .span2{float: right;vertical-align: center}

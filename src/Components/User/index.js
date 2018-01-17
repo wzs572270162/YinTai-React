@@ -9,7 +9,7 @@ class User extends Component{
 	constructor(){
 		super();
 		this.state={
-			show:false,
+			bbb:false,
 			aaa:false
 		}
 	}	
@@ -26,24 +26,41 @@ class User extends Component{
 	    	}else{
 	    		this.setState({
 	    			
-	    			show:true
+	    			bbb:true
 	    		})
 	    	}
 
 	    })
 	}
 
+
+	handle(){
+		this.setState({
+			aaa:true,
+			bbb:false
+		
+		});
+		console.log("传递1111")
+	}
+	handle1(){
+		this.setState({
+			aaa:false,
+			bbb:true
+		
+		});
+		console.log("传递2222")
+	}
+
 	render(){
 		return <div id="User">
 
-
-				<div className={this.state.show?"isblock":"isnone"}>
-					<User1></User1>
+				<div className={this.state.bbb?"isblock":"isnone"}>
+					<User1 event={this.handle.bind(this)}></User1>
 				</div>
 
 
 				<div className={this.state.aaa?"isblock":"isnone"}>
-					<User2></User2>
+					<User2 event={this.handle1.bind(this)}></User2>
 				</div>
 
 			</div>
