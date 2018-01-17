@@ -48,6 +48,37 @@
     background:red;
 }
 
+#detail .counts{
+    float:right;
+    
+    
+    display: flex;
+    justify-content: space-around;
+    margin-right:3em;
+}
+#detail .counts div:first-child{
+    line-height: 1.5em;
+} 
+#detail .counts>div{
+    float:right;
+} 
+#detail .counts .active_box{
+    width:1.5em;
+    height:1.5em;
+    border:1px solid red;
+    line-height: 1.5em;
+    text-align:center;
+    border-radius:0.45em;
+}
+#detail .counts .number{
+    width:1.5em;
+    height:1.5em;
+    
+    line-height: 1.5em;
+    text-align:center;
+    
+}
+
 
 
 

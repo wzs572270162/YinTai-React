@@ -34,7 +34,13 @@ export default class Shopping extends Component {
             });
            
         })
-
+        //全选框判定
+        let num=document.querySelectorAll('#shopping .number');
+        let checkedbox_all=document.querySelector('#shopping .checkedbox_all');
+        console.log(checkedbox_all.checked)
+        if(checkedbox_all.checked!==null && num.length==this.state.shuju.length){
+             return checkedbox_all.checked=!checkedbox_all.checked
+        }
     }
     detailId(index){
         console.log(index);
@@ -45,7 +51,7 @@ export default class Shopping extends Component {
     // 全选
     checkedbox_all(){
         let checkedbox_all=document.querySelector('#shopping .checkedbox_all');
-        console.log(checkedbox_all)
+        // console.log(checkedbox_all)
         let checkbox_all=document.querySelectorAll('#shopping .checkbox');
         checkbox_all.forEach((item,index) => {
             if(checkedbox_all.checked){
@@ -57,62 +63,51 @@ export default class Shopping extends Component {
     }
     // 删除选中的input 
     remove(){
+        alert("确认删除？")
         console.log(document.querySelectorAll('#shopping .checkbox'))
         let checkbox_all=document.querySelectorAll('#shopping .checkbox');
         checkbox_all.forEach((item,index) => {
             if(item.checked){
                 // checkbox_all.remove(index).parent
-                item.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.
-                removeChild(item.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+                item.parentNode.parentNode.parentNode.
+                removeChild(item.parentNode.parentNode);
             }
         });
     }
-    //数量加减
-    // small(){
-    //     let num=document.querySelectorAll('#shopping .number');
-    //     let count=num.innerHTML--
-    //     if(count<=1){
-    //         num.innerHTML=1
-    //     }
-    //     console.log(typeof(count))
-    //     console.log(count)
-    // }
-    //  large(){
-    //     let num=document.querySelectorAll('#shopping .number');
-    //     let count=num.innerHTML++
-        
-    //     if(count>=10){
-    //         num.innerHTML=10
-    //     }
-    //         console.log(typeof(count))
-    //         console.log(count)
-    // }
-    
-
     render() {
+        //数量选择
         let num=document.querySelectorAll('#shopping .number');
         let small=document.querySelectorAll('#shopping .small');
         let large=document.querySelectorAll('#shopping .large');
-        let countbig=num.innerHTML
-        let countsmall=num.innerHTML;
-        console.log(num)
         for (let i = 0; i < small.length; i++) {
   	
             small[i].onclick = function() {
-                
-              console.log(i);
-              console.log(num[i])
-              num[i].innerHTML+=countbig;
+                console.log("small")
+                num[i].innerHTML--;
+                if(parseInt(num[i].innerHTML)<=1){
+                    num[i].innerHTML=1;
+                }
+                    console.log(typeof(num[i].innerHTML));
+                    console.log(num[i].innerHTML);
+                    console.log(i);  
+                }
+                  
             }
-        }
+        
         for (let i = 0; i < large.length; i++) {
   	
             large[i].onclick = function() {
-                
-              console.log(i);
-              num[i].innerHTML-=countsmall;
-            }
+                console.log("large")
+                num[i].innerHTML++;
+                if(parseInt(num[i].innerHTML)>=10){
+                    num[i].innerHTML=10;
+                }
+                console.log(typeof(num[i].innerHTML));
+                console.log(num[i].innerHTML);
+                console.log(i);  
+            }  
         }
+       
         return (
             <div id="shopping">
             <NavBar
@@ -157,7 +152,7 @@ export default class Shopping extends Component {
                 
                
 
-                <div className="houtai">
+                {/* <div className="houtai">
                     {
                         this.state.shuju.length?
                         <ul>
@@ -183,7 +178,7 @@ export default class Shopping extends Component {
                         </div>
                         
                     }
-                </div>
+                </div> */}
 
                 <br/>
                 {/* 购物车数据 */}
@@ -191,27 +186,33 @@ export default class Shopping extends Component {
                          
                         <input id='checkedbox_all' type="checkbox" className="checkedbox_all" defaultChecked onClick={this.checkedbox_all.bind(this)}/>
                         <label htmlFor="checkedbox_all">全选</label>
-						
-                            <div className="shopping_list">
-                                <div><input type="checkbox" defaultChecked className="checkbox"/></div>
-                                
-                                <img src="https://p10.ytrss.com/product/21/489/7495/GridImage/yintai_8dca1100-dbdf-4f7d-b4e6-927d9549774e.jpg" alt="pic" style={{width:"auto",height:"3em"}}/>
-                                <span className="price">价格</span>
-                                <div className="active_box small"><span className="active">-</span></div>
-                                <div className="number">1</div>
-                                <div className="active_box large"><span className="active">+</span></div>
-                            </div>
-                            <div className="shopping_list">
-                                <div><input type="checkbox" defaultChecked className="checkbox"/></div>
-                                
-                                <img src="https://p10.ytrss.com/product/21/489/7495/GridImage/yintai_8dca1100-dbdf-4f7d-b4e6-927d9549774e.jpg" alt="pic" style={{width:"auto",height:"3em"}}/>
-                                <span className="price">价格</span>
-                                <div className="active_box small"><span className="active">-</span></div>
-                                <div className="number">1</div>
-                                <div className="active_box large"><span className="active">+</span></div>
-                            </div>
-							
-                        
+                            {
+                                this.state.shuju.length?
+                                this.state.shuju.map(item=>{
+                                    return (
+                                        <div className="shopping_list" key={item._id}>
+                                            <div><input type="checkbox" defaultChecked className="checkbox"/></div>
+                                            
+                                            <div className="pic"><img src={item.img_url} alt="pic"/></div>
+                                            
+                                            <div className="information">
+                                                
+                                                <p><span>{item.goods_name}</span></p>
+                                                <p className="price_position"><span className="price">价格:{item.price}</span></p>
+                                                <div className="count_btn">
+                                                    <div className="active_box small"><span className="active">-</span></div>
+                                                    <div className="number">1</div>
+                                                    <div className="active_box large"><span className="active">+</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                                :null
+                               
+                            }
+                            
+							{/* //删除按钮   */}
                         <button className="remove" onClick={this.remove.bind(this)}>删除</button>
                 </div>
 

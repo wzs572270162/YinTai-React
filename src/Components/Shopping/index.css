@@ -74,15 +74,17 @@
     bottom:0
 }
 #shopping .shopping_list{
-   display:flex;
-   justify-content: space-around;
-   line-height:3em;
+   overflow: hidden;
+   position: relative;
+   
 }
 #shopping .shopping_list input{
     display:inline-block;
+    float:left;
+    margin-top:5em;
  }
  #shopping .shopping_list .active{
-    display:block;
+    display:inline-block;
     width:1.5em;
     height:1.5em;
     border:1px solid red;
@@ -90,14 +92,56 @@
     border-radius:0.3em;
     
  }
+ #shopping .shopping_list .pic{
+    height:11em;
+    float:left;
+ }
+ #shopping .shopping_list .pic img{
+    display:block;
+    width:auto;
+    height:11em;
+    line-height: 11em;
+    
+ }
+ #shopping .shopping_list .information{
+     float:left;
+     overflow: hidden;
+     width:60%;
+     height:11em;
+ }
  #shopping .shopping_list .active_box{
+    float:right;
     padding-top:0.75em;
     text-align: center;
  }
  #shopping .shopping_list .number{
-    width:1em;
+    padding-top:0.9em;
+    width:1.5em;
     text-align:center;
+    float:right;
+    height:1em;
+    line-height: 1em;
+    
  }
+ #shopping .shopping_list .information p:first-child{
+     margin-top:2em;
+     line-height: 1.5em;
+     margin-bottom:0.5em;
+ }
+ #shopping .shopping_list .information p:nth-of-type(2){
+    color:red;
+}
+#shopping .shopping_list .information .count_btn{
+    overflow: hidden;
+    position: absolute;
+    right:3em;
+    bottom:2.5em;
+}
+#shopping .shopping_list .information .price_position{
+    position: absolute;
+    right:10em;
+    bottom:2.7em;
+}
  
 
 

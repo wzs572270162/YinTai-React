@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import "./index.css";
 
 import { NavLink } from 'react-router-dom'
-import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
+import { Icon,Popover, NavBar,SearchBar,Toast} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import axios from "axios";
 
@@ -29,6 +29,33 @@ class Detail extends Component{
     }
 	
 	render(){
+		
+        // // for (let i = 0; i < small.length; i++) {
+  	
+        //     small.onclick = function() {
+        //         num.innerHTML--;
+        //         if(parseInt(num.innerHTML)<=1){
+        //             num.innerHTML=1;
+        //         }
+        //             console.log(typeof(num.innerHTML));
+        //             console.log(num.innerHTML);
+                     
+        //         }
+                  
+        //     // }
+        
+        // // for (let i = 0; i < large.length; i++) {
+  	
+        //     large.onclick = function() {
+        //         num.innerHTML++;
+        //         if(parseInt(num.innerHTML)>=10){
+        //             num.innerHTML=10;
+        //         }
+        //         console.log(typeof(num.innerHTML));
+        //         console.log(num.innerHTML);
+                 
+        //     }  
+        // // }
 		return (
 		<div id="detail">
 		<NavBar
@@ -68,10 +95,12 @@ class Detail extends Component{
 					              }
 					    >商品详情</NavBar>
 						{/* {this.props.match.params.index} */}
-						{/* 空购物车背景 */}
+						
 						<div className="context">
 						{
 								this.state.datalist?
+								<div>
+
 									<dl className="list">
 										<dt><img src={this.state.datalist[this.state.index].imageUrl} alt={this.state.datalist[this.state.index].imageName}/></dt>
 										<dd><p>{this.state.datalist[this.state.index].itemName}</p></dd>
@@ -81,12 +110,20 @@ class Detail extends Component{
 											<span>商品编号:{this.state.datalist[this.state.index].itemSpu}</span>
 										</dd>
 									</dl>
-									:[]
+									<div className="counts">
+										<div>数量选择：</div>
+										<div className="active_box small" onClick={this.small.bind(this)}><span className="active">-</span></div>
+										<div className="number">1</div>
+										<div className="active_box large" onClick={this.large.bind(this)}><span className="active">+</span></div>
+										
+									</div>
+								</div>
+								:[]
                    		 }
 						</div>
 						
 						<div className="add">
-							<a><i className="iconfont icon-gouwuche" style={{ fontSize: 32,height:32 ,width:"1em",color:"red",fontWeight:"bold"}}></i></a>
+							<NavLink to="/shopping"><i className="iconfont icon-gouwuche" style={{ fontSize: 32,height:32 ,width:"1em",color:"red",fontWeight:"bold"}}></i></NavLink>
 							<span className="send_add" onClick={this.addshop.bind(this)}>加入购物车</span>
 							<span className="send_buy">立即购买</span>
 						</div>
@@ -101,12 +138,42 @@ class Detail extends Component{
 		axios.post(`/users/create`,{
 			name:this.state.datalist[this.state.index].itemName,
 			price:this.state.datalist[this.state.index].salePrice,
-			imgUrl:this.state.datalist[this.state.index].imageUrl
+			imgUrl:this.state.datalist[this.state.index].imageUrl,
+			count:this.state.datalist[this.state.index].count
 		}).then((res)=>{
 			console.log(res);
+			//添加购物车过渡样式
+				Toast.success('添加购物车成功', 2);
+
+			
 		})
 
 	}
+	large(){
+		let num=document.querySelector('#detail .number');
+        let small=document.querySelector('#detail .small');
+        let large=document.querySelector('#detail .large');
+		num.innerHTML++;
+		if(parseInt(num.innerHTML)>=10){
+			num.innerHTML=10;
+		}
+		console.log(typeof(num.innerHTML));
+		console.log(num.innerHTML);
+	}
+	small() {
+		let num=document.querySelector('#detail .number');
+        let small=document.querySelector('#detail .small');
+        let large=document.querySelector('#detail .large');
+		num.innerHTML--;
+		if(parseInt(num.innerHTML)<=1){
+			num.innerHTML=1;
+		}
+			console.log(typeof(num.innerHTML));
+			console.log(num.innerHTML);
+			 
+	}
+	
+	
 
 
 }
