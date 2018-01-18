@@ -13,13 +13,15 @@ const Item = Popover.Item;
 
 const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
 class User2 extends Component{
-
+	componentDidMount(){
+		
+	}
 	render(){
 		return <div id="User2">
 			<NavBar
 			      mode="light"
 			      icon={<Icon type="left" />}
-			      onLeftClick={() => {this.props.history.push('/')}}
+			      onLeftClick={() => {this.props.prop.history.push('/')}}
 			      rightContent={
 			                <Popover mask
 			                  overlayClassName="fortest"

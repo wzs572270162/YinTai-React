@@ -35,12 +35,14 @@ class User extends Component{
 
 
 	handle(){
+		console.log("传递1111")
 		this.setState({
 			aaa:true,
 			bbb:false
 		
 		});
-		console.log("传递1111")
+		
+		console.log("传递属性")
 	}
 	handle1(){
 		this.setState({
@@ -49,6 +51,7 @@ class User extends Component{
 		
 		});
 		console.log("传递2222")
+		
 	}
 
 	render(){
@@ -60,7 +63,7 @@ class User extends Component{
 
 
 				<div className={this.state.aaa?"isblock":"isnone"}>
-					<User2 event={this.handle1.bind(this)}></User2>
+					<User2 event={this.handle1.bind(this)} prop={this.props}></User2>
 				</div>
 
 			</div>

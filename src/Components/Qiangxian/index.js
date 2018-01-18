@@ -23,29 +23,44 @@ class Card extends Component{
 	constructor(){
 		super();
 		this.state={
-			imgurl:'',
+			imgurl1:'',
+			imgurl2:'',
+			imgurl3:'',
+			imgurl4:'',
+			imgurl5:'',
 			discount:'',
-			title:'',
+			price1:'',
+			price2:'',
+			price3:'',
+			price4:'',
+			price5:'',
 			time:'',
 			data:[]
 		}
 	}
 	componentDidMount(){
-		axios.get('/Services/Proxy.ashx?r=0.30376459503410946&type=5&page_index=1&displaycount=30&methodName=products.limitbuy_1.2.0&method=products.limitbuy&ver=2.1')
+		axios.get('/json/shopping.json')
 		.then(res=>{
-			console.log(res.data.data.activityinfo.length)
-			if(res.data.data.activityinfo.length!==this.state.data.length){
+			console.log(res.data.val)
 				this.setState({
 	
-					imgurl:res.data.data.activityinfo[0].activitylist[0].imgurl,
-					discount:res.data.data.activityinfo[0].activitylist[0].discount,
-					title:res.data.data.activityinfo[0].activitylist[0].title,
-					time:res.data.data.activityinfo[0].activitylist[0].leftsecond
+					imgurl1:res.data.val[0].imageUrl,
+					imgurl2:res.data.val[1].imageUrl,
+					imgurl3:res.data.val[2].imageUrl,
+					imgurl4:res.data.val[3].imageUrl,
+					imgurl5:res.data.val[4].imageUrl,
+					time:36000,
+					price1:res.data.val[0].salePrice,
+					price2:res.data.val[1].salePrice,
+					price3:res.data.val[2].salePrice,
+					price4:res.data.val[3].salePrice,
+					price5:res.data.val[4].salePrice,
 				})
-			}
-			return
 			
 				
+		})
+		.catch(err=>{
+			console.log(err)
 		})
 	}
 	render(){
@@ -97,42 +112,55 @@ class Card extends Component{
 							className="tabs"
 						>
 								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
-									<img src={this.state.imgurl} alt="hotpic" style={{width:"100%"}}/>
+									<div className="pic_box">
+
+										<img src={this.state.imgurl1} alt="hotpic" className="pic"/>
+									</div>
 									<span className="discount">{this.state.discount}</span>
 									<p>
-										<span className="left">{this.state.title}</span>
+										<span className="left">￥{this.state.price1}</span>
+										{/* <span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								 */}
+									</p>
+								</div>
+								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
+									<div className="pic_box">
+										<img src={this.state.imgurl2} alt="hotpic"  className="pic"/>	
+									</div>
+									<span className="discount">{this.state.discount}</span>
+									<p>
+										<span className="left">￥{this.state.price2}</span>
+										{/* <span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								 */}
+									</p>
+								</div>
+								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
+									<div className="pic_box">
+										<img src={this.state.imgurl3} alt="hotpic" className="pic"/>
+									</div>
+									<span className="discount">{this.state.discount}</span>
+									<p>
+										<span className="left">￥{this.state.price3}</span>
 										<span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								
 									</p>
 								</div>
 								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
-									<img src={this.state.imgurl} alt="hotpic" style={{width:"100%"}}/>
+									<div className="pic_box">
+										<img src={this.state.imgurl4} alt="hotpic" className="pic"/>
+									</div>
+									
 									<span className="discount">{this.state.discount}</span>
 									<p>
-										<span className="left">{this.state.title}</span>
+										<span className="left">￥{this.state.price4}</span>
 										<span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								
 									</p>
 								</div>
 								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
-									<img src={this.state.imgurl} alt="hotpic" style={{width:"100%"}}/>
+									<div className="pic_box">
+										<img src={this.state.imgurl5} alt="hotpic" className="pic"/>
+									</div>
+									
 									<span className="discount">{this.state.discount}</span>
 									<p>
-										<span className="left">{this.state.title}</span>
-										<span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								
-									</p>
-								</div>
-								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
-									<img src={this.state.imgurl} alt="hotpic" style={{width:"100%"}}/>
-									<span className="discount">{this.state.discount}</span>
-									<p>
-										<span className="left">{this.state.title}</span>
-										<span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								
-									</p>
-								</div>
-								<div style={{ alignItems: 'center', height: '250px', backgroundColor: '#fff' }}>
-									<img src={this.state.imgurl} alt="hotpic" style={{width:"100%"}}/>
-									<span className="discount">{this.state.discount}</span>
-									<p>
-										<span className="left">{this.state.title}</span>
+										<span className="left">￥{this.state.price5}</span>
 										<span className="right">剩{Math.floor(this.state.time/3600)}小时</span>								
 									</p>
 								</div>

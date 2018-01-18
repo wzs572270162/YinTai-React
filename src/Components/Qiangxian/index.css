@@ -50,3 +50,16 @@
     border-bottom:1px solid #ccc;
     text-align:center;
 }
+#qiangxian .pic_box{
+    width:100%;
+    height:2.3rem;
+    text-align:center;
+    overflow: hidden;
+}
+#qiangxian .pic_box .pic{
+    display:inline-block;
+    width:auto;
+    height:100%;
+}
+
+
