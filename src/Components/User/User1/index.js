@@ -107,6 +107,7 @@ class User1 extends Component{
 
 
 	}
+	
 }
 
 export default User1;

@@ -6,12 +6,7 @@
     float: right
 }
 
-#shopping .isnone{
-    display: none;
-}
-#shopping .isblock{
-    display: block;
-}
+
 #shopping .none img{
     margin-top:1rem;
     margin-bottom:0.2rem;
