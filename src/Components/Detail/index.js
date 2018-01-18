@@ -13,6 +13,7 @@ class Detail extends Component{
         this.state={
 			datalist:null,
 			index:null,
+			information:null
         }
 	}
     componentDidMount(){
@@ -25,43 +26,29 @@ class Detail extends Component{
 				console.log(this.state.datalist)
 				console.log(this.props.match.params.index)
             })
-        })
+        });
+        axios.get('/users/judge').then((res)=>{
+        	
+			if(res.data.code==1){
+				this.setState({
+					information:"success"
+				},()=>{console.log(this.state.information,898989)})
+			}else{
+				return;
+				}
+		})
+
     }
 	
 	render(){
 		
-        // // for (let i = 0; i < small.length; i++) {
-  	
-        //     small.onclick = function() {
-        //         num.innerHTML--;
-        //         if(parseInt(num.innerHTML)<=1){
-        //             num.innerHTML=1;
-        //         }
-        //             console.log(typeof(num.innerHTML));
-        //             console.log(num.innerHTML);
-                     
-        //         }
-                  
-        //     // }
-        
-        // // for (let i = 0; i < large.length; i++) {
-  	
-        //     large.onclick = function() {
-        //         num.innerHTML++;
-        //         if(parseInt(num.innerHTML)>=10){
-        //             num.innerHTML=10;
-        //         }
-        //         console.log(typeof(num.innerHTML));
-        //         console.log(num.innerHTML);
-                 
-        //     }  
-        // // }
+       
 		return (
 		<div id="detail">
 		<NavBar
 					      mode="light"
 					      icon={<Icon type="left" />}
-					      onLeftClick={() => {this.props.history.push('/')}}
+					      onLeftClick={() => {this.props.history.push('/shopping')}}
 					      rightContent={
 					                <Popover mask
 					                  overlayClassName="fortest"
@@ -132,21 +119,23 @@ class Detail extends Component{
 	}
 
 	addshop(){
-		// console.log("添加");
-		// console.log(this.state.datalist[this.state.index].imageUrl);
-		// var that=this;
+
 		axios.post(`/users/create`,{
 			name:this.state.datalist[this.state.index].itemName,
 			price:this.state.datalist[this.state.index].salePrice,
 			imgUrl:this.state.datalist[this.state.index].imageUrl,
 			count:this.state.datalist[this.state.index].count
 		}).then((res)=>{
-			console.log(res);
-			//添加购物车过渡样式
+			if(this.state.information=="success"){
 				Toast.success('添加购物车成功', 2);
-
+				return;
+			}
+			Toast.fail('您还未登录，请先登录', 2);
+			this.props.history.push("/user")
 			
+
 		})
+
 
 	}
 	large(){

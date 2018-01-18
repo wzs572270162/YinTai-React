@@ -1,5 +1,9 @@
+
 #shopping .none{
     text-align:center;
+}
+#shopping .delete{
+    float: right
 }
 
 #shopping .isnone{
@@ -83,6 +87,7 @@
 #shopping .shopping_list{
    overflow: hidden;
    position: relative;
+   border-bottom: 1px solid #ccc;
    
 }
 #shopping .shopping_list input{
@@ -90,6 +95,14 @@
     float:left;
     margin-top:5em;
  }
+ #shopping .isnone{
+    display: none;
+}
+
+#shopping .isblock{
+    display: block;
+}
+
  #shopping .shopping_list .active{
     display:inline-block;
     width:1.5em;

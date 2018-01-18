@@ -70,6 +70,39 @@ router.get('/judge',function(req,res,next){
 })
 
 
+// router.post('/goodsdel', function(req, res, next) {
+// 	GoodsModel.findById(req.body.id, function (err, post) {
+// 	  if (!err) {
+// 	    post.remove(function(err){
+// 		 	var result = {
+// 		 		code: 1
+// 		 	}
+// 			if(err) {
+// 				result.code = -109;
+// 				result.message = "删除失败!";
+// 			}
+// 			res.send(JSON.stringify(result));
+// 	    });
+// 	  }
+// 	});
+  
+// });
+
+router.post('/goodsdel', function(req, res, next) {
+	GoodsModel.remove({_id: req.body.id}, (err)=>{
+		var result = {
+			code:1
+		}
+		if(err) {
+			console.log(err);
+			result.code = -88;
+			result.message = "删除失败";
+		}
+		res.send(JSON.stringify(result));
+	})
+});
+
+
 router.post('/create', function(req, res, next) {
 	  if(!req.session || !req.session.username) {
 		var result = {
@@ -109,10 +142,10 @@ router.get('/goodsShow', function(req, res, next) {
 			message:'获取成功'
 		}
 		
-		if(err || docs.length == 0) {
+		if(docs.length == 0) {
 			result.code = -66;
 			result.message = "无效的用户名";
-			res.send(JSON.stringify(result));
+			res.send('');
 			return;
 		}
 		res.send(docs);

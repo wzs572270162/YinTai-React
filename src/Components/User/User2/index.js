@@ -19,7 +19,7 @@ class User2 extends Component{
 			<NavBar
 			      mode="light"
 			      icon={<Icon type="left" />}
-			      onLeftClick={() => {this.props.history.push('/')}}
+			      onLeftClick={() => {this.props.ppp.history.push('/')}}
 			      rightContent={
 			                <Popover mask
 			                  overlayClassName="fortest"
@@ -77,7 +77,7 @@ class User2 extends Component{
 			    	</li>
 			    </ul>
 
-			    <div id="box"></div>
+			    <div id="box2"></div>
 
 			   
 
@@ -86,7 +86,7 @@ class User2 extends Component{
 			    	<li>
 			    		2.01
 			    		<p>积分</p>
-			    	</li>
+			    	</ li>
 			    	<li>
 			    		11.89
 			    		<p>银元</p>

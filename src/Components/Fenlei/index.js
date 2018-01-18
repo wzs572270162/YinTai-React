@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 import 'antd-mobile/dist/antd-mobile.css';
 import {connect} from "react-redux"
-import { Icon,Popover, NavBar,SearchBar} from 'antd-mobile';
+import { Icon,Popover, NavBar,SearchBar,Toast} from 'antd-mobile';
 
 const Item = Popover.Item;
 
@@ -270,7 +270,7 @@ export default connect(
 		},
 
 		getFenLeiList:(id)=>{
-
+			Toast.loading();
 		 	return (dispatch)=>{
 		 		axios.get(`/Services/Proxy.ashx?r=0.2140744635894909&methodName=products.category.getchildcategory_3.0.0&method=products.category.getchildcategory&ver=3.0.0&categoryid=${id}`).then(res=>{
 		 			console.log(res);
@@ -278,7 +278,8 @@ export default connect(
 						// type:`FENLEI_LIST${id}`,
 						type:`FENLEI_LIST`,
 						payload:res.data.data
-					})
+					}),
+				Toast.hide();
 
 			    })
 

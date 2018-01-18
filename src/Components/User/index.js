@@ -55,12 +55,12 @@ class User extends Component{
 		return <div id="User">
 
 				<div className={this.state.bbb?"isblock":"isnone"}>
-					<User1 event={this.handle.bind(this)}></User1>
+					<User1 event={this.handle.bind(this)} ppp={this.props}></User1>
 				</div>
 
 
 				<div className={this.state.aaa?"isblock":"isnone"}>
-					<User2 event={this.handle1.bind(this)}></User2>
+					<User2 event={this.handle1.bind(this)} ppp={this.props}></User2>
 				</div>
 
 			</div>

@@ -35,8 +35,7 @@ class Card extends Component{
 		.then(res=>{
 			console.log(res.data.data.activityinfo.length)
 			if(res.data.data.activityinfo.length!==this.state.data.length){
-				this.setState({
-	
+				this.setState({	
 					imgurl:res.data.data.activityinfo[0].activitylist[0].imgurl,
 					discount:res.data.data.activityinfo[0].activitylist[0].discount,
 					title:res.data.data.activityinfo[0].activitylist[0].title,

@@ -19,7 +19,7 @@ class User1 extends Component{
 			<NavBar
 		      mode="light"
 		      icon={<Icon type="left" />}
-		      onLeftClick={() => {this.props.history.push('/')}}
+		      onLeftClick={() => {this.props.ppp.history.push('/')}}
 		      rightContent={
 		                <Popover mask
 		                  overlayClassName="fortest"

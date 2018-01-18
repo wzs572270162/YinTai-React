@@ -3,7 +3,9 @@ import './index.css'
 import clearcart from '../../assets/pic/clearcart2.png'
 import { NavLink } from 'react-router-dom'
 import { Icon,Popover, NavBar,List, Stepper} from 'antd-mobile';
-import axios from 'axios'
+import axios from 'axios';
+
+
 
 const Item = Popover.Item;
 export default class Shopping extends Component {
@@ -12,13 +14,19 @@ export default class Shopping extends Component {
         this.state={
             datalist:null,
             val:1,
-            shuju:[]
+            shuju:[],
+            bbb:false,
+            aaa:false,
+            isshow:"isblock",
         }
     }
     onChange=(val) => {
 		// console.log(val);
 		this.setState({ val },()=>{console.log(this.state.val)});
 	  }
+
+    
+
     componentDidMount(){
         axios.get('/json/shopping.json').then(res=>{
             // console.log(res.data.val[0].imageUrl)
@@ -28,10 +36,19 @@ export default class Shopping extends Component {
                 console.log(this.state.datalist) 
             })
         });
-        axios.get(`/users/goodsShow`).then((res)=>{       
-            this.setState({
-                shuju:res.data
-            });
+        axios.get(`/users/goodsShow`).then((res)=>{ 
+            if(res.data.length==0){
+                this.setState({
+                    bbb:true
+                })
+            } else{
+                this.setState({
+                    shuju:res.data,
+                    bbb:false,
+                    aaa:true
+                });
+            }     
+            
            
         })
         //全选框判定
@@ -62,15 +79,26 @@ export default class Shopping extends Component {
         });
     }
     // 删除选中的input 
+    remove111(id){
+        if(this.state.isshow=="isblock"){
+            this.setState({isshow:"isnone"})
+        }else{
+            this.setState({isshow:"isblock"})
+        }
+    }
     remove(){
         alert("确认删除？")
         console.log(document.querySelectorAll('#shopping .checkbox'))
         let checkbox_all=document.querySelectorAll('#shopping .checkbox');
         checkbox_all.forEach((item,index) => {
             if(item.checked){
-                // checkbox_all.remove(index).parent
+                // console.log(item.getAttribute('ooo'),56525247)
                 item.parentNode.parentNode.parentNode.
                 removeChild(item.parentNode.parentNode);
+                axios.post(`/users/goodsdel`,{id:item.getAttribute('ooo')}).then((res)=>{
+                    console.log(res)
+                })
+
             }
         });
     }
@@ -149,8 +177,19 @@ export default class Shopping extends Component {
 				</NavBar>
 
 
+
                 
-               
+                <div className={this.state.bbb?"isblock":"isnone"}>
+                    <div className="none">
+                        <img src={clearcart} alt="clearcart"/>
+                        <p>购物车空空哒!</p>
+                        <p>快去随便逛逛吧~</p>
+                        <NavLink to="/" className="btn_none">随便逛逛</NavLink>
+                    </div>
+                </div>
+
+
+
 
                 {/* <div className="houtai">
                     {
@@ -183,10 +222,12 @@ export default class Shopping extends Component {
                 <br/>
 
 
-                
-                {/* 购物车数据 */}
-                <div className="shopping_all">
-                         
+ {/*======================================================================================================*/}               
+        {
+            <div className={this.state.aaa?"isblock":"isnone"}>
+
+                {/*购物车数据*/}
+                <div className="shopping_all">                        
                         <input id='checkedbox_all' type="checkbox" className="checkedbox_all" defaultChecked onClick={this.checkedbox_all.bind(this)}/>
                         <label htmlFor="checkedbox_all">全选</label>
                             {
@@ -194,31 +235,35 @@ export default class Shopping extends Component {
                                 this.state.shuju.map(item=>{
                                     return (
                                         <div className="shopping_list" key={item._id}>
-                                            <div><input type="checkbox" defaultChecked className="checkbox"/></div>
+                                       
+                                            <div><input type="checkbox" defaultChecked className="checkbox" ooo={item._id}/></div>
                                             
                                             <div className="pic"><img src={item.img_url} alt="pic"/></div>
                                             
                                             <div className="information">
                                                 
-                                                <p><span>{item.goods_name}</span></p>
+                                                <p><span className={this.state.isshow}>{item.goods_name}</span></p>
                                                 <p className="price_position"><span className="price">价格:{item.price}</span></p>
                                                 <div className="count_btn">
                                                     <div className="active_box small"><span className="active">-</span></div>
                                                     <div className="number">1</div>
                                                     <div className="active_box large"><span className="active">+</span></div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     )
                                 })
-                                :null
-                               
+                                :null                              
                             }
                             
 							{/* //删除按钮   */}
                         <button className="remove" onClick={this.remove.bind(this)}>删除</button>
                 </div>
 
+        </div>
+    }
+{/*======================================================================================================*/}
 
                 <div className="like">
                     <fieldset className="recommend-title">
