@@ -1,14 +1,14 @@
 #Header{
 	width:100%;
-	height: 0.60rem;
+	height: 0.54rem;
 	display: table-cell;
 	vertical-align: middle;
 }
 
 #box{
 	width:100%;
-	height: 0.6rem;
 	position: fixed;
+	top:0;
 	z-index: 999;
 	background: #fff;
 }
@@ -35,11 +35,13 @@
 
 #box1{
 	width:100%;
-	height: 0.6rem;
+	height: 0.54rem;
 }
 
 body{
 	background: white;
+	margin-bottom: 0.5rem;
+	box-sizing: border-box;
 }
 
 #Headerall ul,#Headerall li{
@@ -51,16 +53,27 @@ body{
 	color: #666666;font-size: 14px;
 	
 }
-#Headerall .tu img{width:0.92rem;display: block;margin-bottom: 0.1rem;}
+#Headerall .tu img{
+	width:0.92rem;
+	display: block;
+	margin-bottom: 0.1rem;
+}
 
 #Headerall .tu li{
 	flex:1;
+	height: 0.83rem;
+	background: #fff;
 }
 
-#Headerall .punish{width: 100%;margin-top:0.2rem;}
+#Headerall .punish{
+	width: 100%;
+	display: block;
+}
 
 #Headerall .first img{
-	width:50%;float: left;padding: 1px;box-sizing: border-box;
+	width:50%;
+	float: left;
+	box-sizing: border-box;
 }
 
 #Headerall .box{
@@ -69,6 +82,149 @@ body{
 	background: #f1f1f1
 }
 
-#Headerall .tong{
+.tong{
 	width:100%;
+	margin-top: 0.1rem;
+	display: block;
+}
+.tong img{
+	width:100%;
+	display: block;
+}
+.shinee{
+	width: 100%;
+	height: 2.93rem;
+}
+
+.shinee div{
+	border: 1px solid #ccc;
+}
+
+.shineeTop{
+	width: 100%;
+	height: 1.7655rem;
+}
+
+.shineeTop_left{
+	width: 50%;
+	height: 100%;
+	box-sizing: border-box;
+	float: left;
+}
+
+.shineeTop_left img{
+	width: 100%;
+}
+
+.shineeTop_right{
+	width:50%;
+	box-sizing: border-box;
+	float: right;
+}
+
+.shineeTop_right img{
+	width: 100%;
+	height: 50%;
+	display: block;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+}
+
+.shineeBottom{
+	width: 100%;
+	height: 1.1645rem;
+}
+
+.shineeBottom ul{
+	width: 100%;
+	display: flex;
+}
+
+.shineeBottom_li{
+	flex:1;
+	height: 1.1645rem;
+	box-sizing: border-box; 
+	border-left: 1px solid #ccc;
+}
+
+.shineeBottom_li img{
+	width: 100%;	
+}
+
+/*美丽课堂>>>>>>>>*/
+.events{
+	width: 100%;
+	height: 2.93rem;
+	/*background: #f60;*/
+}
+
+.events div{
+	border: 1px solid #ccc;
+}
+
+.eventsTop{
+	float: left;
+	width: 100%;
+	height: 1.7655rem;
+}
+
+.eventsTop_left{
+	width: 50%;
+	height: 100%;
+	box-sizing: border-box;
+	float: left;
+}
+
+.eventsTop_left img{
+	width: 100%;
+	height: 50%;
+	float: left;
+	display: block;
+	box-sizing: border-box;
+	border-bottom:1px solid #ccc;
+}
+
+.eventsTop_right{
+	width:50%;
+	box-sizing: border-box;
+	float: right;
+}
+
+.eventsTop_right img{
+	width: 100%;
+	
+	display: block;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+}
+
+.eventsBottom{
+	width: 100%;
+	height: 1.1645rem;
+	float: left;
+}
+
+.eventsBottom ul{
+	display: flex;
+}
+
+.eventsBottom_li{
+	flex:1;
+	height: 1.1645rem;
+	box-sizing: border-box; 
+	border-left: 1px solid #ccc;
+}
+
+.eventsBottom_li img{
+	width: 100%;	
+}
+
+/*美丽课堂>>>>>>>>*/
+.xie ul{
+	width: 100%;
+}
+.xie li{
+	width: 50%;
+	float: left;
+	height: 50px;
 }

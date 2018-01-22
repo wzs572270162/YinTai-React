@@ -11,12 +11,14 @@ import logo from "../../assets/pic/newlogo.png"
 import "../../assets/font/iconfont.css"
 class Header extends Component{
 	
-	
+	constructor(){
+		super();
+	}
 
 	componentDidMount(){
-		
-		if(this.props.alllist.length!==0){
-			console.log("asdfasdfasdqr");		
+		this.setState({
+		})
+		if(this.props.alllist.length!==0){	
 		}else{
 			this.props.getList();
 			return;
@@ -44,13 +46,7 @@ class Header extends Component{
 
 			{	
 				this.props.alllist.bannerlist?
-				<ReactSwipe className="carousel" swipeOptions={{continuous: true,auto:2000, stopPropagation: true}}
-				>
-				 	{/*key={this.state.looplist.length}*/}
-	                {
-	                	/*this.state.looplist.map(item=>
-	                		<img src={item.imgurl} key={item.id} />)*/
-	                }
+				<ReactSwipe className="carousel" swipeOptions={{continuous: true,auto:2000, stopPropagation: true}}>
 	                {
 	                	this.props.alllist.bannerlist.map(item=>
 	                		<img src={item.imgurl} key={item.id} alt="pic"/>)
@@ -88,8 +84,6 @@ class Header extends Component{
         		this.props.alllist.templatelist?
              		<img src={this.props.alllist.templatelist[1].items[0].imgurl} className="punish" alt="pic"/>:[]
          	}
- 
- {/*        	{this.props.alllist.pageid}*/}
 
  			<div className="box"></div>
 
@@ -130,20 +124,312 @@ class Header extends Component{
 
  					</ul>:[]
  				}
- 				{
- 					this.props.alllist.templatelist?
- 					<img src={this.props.alllist.templatelist[6].items[0].imgurl} className="tong" alt="pic"/>
- 					:[]
- 				}
+ 				<div className="tong">
+	 				{
+	 					this.props.alllist.templatelist?
+	 					<img src={this.props.alllist.templatelist[6].items[0].imgurl}  alt="pic"/>
+	 					:[]
+	 				}
+ 				</div>
 
  			</div>
 
+ 			<div className="tong">
+ 				{
+ 					this.props.alllist.templatelist?
+ 					<img src={this.props.alllist.templatelist[8].items[0].imgurl}  alt="pic"/>
+ 					:[]
+ 				}
+ 			</div>
 
+			{/*商城同款*/}
+ 			<div className="shinee">
+ 				<div className="shineeTop">
 
+ 					<div className="shineeTop_left">
+ 						{
+ 							this.props.alllist.templatelist?
+ 							<img src={this.props.alllist.templatelist[9].items[0].imgurl} alt="pic"/>
+ 							:[]
+ 						}
+ 					</div>
+ 					<div className="shineeTop_right">
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[9].items[1].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[9].items[2].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 					</div>
+ 				</div>
+ 				<div className="shineeBottom">
+ 					{
+ 					 					this.props.alllist.templatelist?
+ 					 					<ul>
+ 					 						{
+ 					 							this.props.alllist.templatelist[10].items.map((item)=>{
+ 					 								return(
+ 					 									<li  key={item.itemid} className="shineeBottom_li">
+ 					 										<img src={item.imgurl} alt="pic"/>
+ 					 									</li>
+ 					 								)
+ 					 							})
+ 					 						}
+ 					 					</ul>:[]
+ 					 				}
+ 				</div>
+ 			</div>
+ 			{/*商城同款*/}
+			{/*美丽课堂*/}
+			<div className="tong">
+				{
+					this.props.alllist.templatelist?
+					<img src={this.props.alllist.templatelist[12].items[0].imgurl} alt="pic"/>
+					:[]
+				}
+			</div>
+ 			<div className="events">
+ 				<div className="eventsTop">
 
-            
+ 					<div className="eventsTop_right">
+ 						{
+ 							this.props.alllist.templatelist?
+ 							<img src={this.props.alllist.templatelist[13].items[2].imgurl} alt="pic"/>
+ 							:[]
+ 						}
+ 					</div>
+ 					<div className="eventsTop_left">
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[13].items[0].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[13].items[1].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 					</div>
+ 				</div>
+ 				<div className="eventsBottom">
+ 					{
+ 					 					this.props.alllist.templatelist?
+ 					 					<ul>
+ 					 						{
+ 					 							this.props.alllist.templatelist[14].items.map((item)=>{
+ 					 								return(
+ 					 									<li  key={item.itemid} className="eventsBottom_li">
+ 					 										<img src={item.imgurl} alt="pic"/>
+ 					 									</li>
+ 					 								)
+ 					 							})
+ 					 						}
+ 					 					</ul>:[]
+ 					 				}
+ 				</div>
+ 			</div>
+ 			{/*美丽课堂*/}
+			
+			{/*奢品馆*/}
+			<div className="tong">
+				{
+					this.props.alllist.templatelist?
+					<img src={this.props.alllist.templatelist[15].items[0].imgurl} alt="pic"/>
+					:[]
+				}
+			</div>
+ 			<div className="shinee">
+ 				<div className="shineeTop">
 
-		
+ 					<div className="shineeTop_left">
+ 						{
+ 							this.props.alllist.templatelist?
+ 							<img src={this.props.alllist.templatelist[16].items[0].imgurl} alt="pic"/>
+ 							:[]
+ 						}
+ 					</div>
+ 					<div className="shineeTop_right">
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[16].items[1].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[16].items[2].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 					</div>
+ 				</div>
+ 				<div className="shineeBottom">
+ 					{
+ 					 					this.props.alllist.templatelist?
+ 					 					<ul>
+ 					 						{
+ 					 							this.props.alllist.templatelist[17].items.map((item)=>{
+ 					 								return(
+ 					 									<li  key={item.itemid} className="shineeBottom_li">
+ 					 										<img src={item.imgurl} alt="pic"/>
+ 					 									</li>
+ 					 								)
+ 					 							})
+ 					 						}
+ 					 					</ul>:[]
+ 					 				}
+ 				</div>
+ 			</div>
+ 			{/*奢品馆*/}
+			{/*时尚鞋靴*/}
+			<div className="tong">
+				{
+					this.props.alllist.templatelist?
+					<img src={this.props.alllist.templatelist[18].items[0].imgurl} alt="pic"/>
+					:[]
+				}
+			</div>
+ 			<div className="events">
+ 				<div className="eventsTop">
+
+ 					<div className="eventsTop_right">
+ 						{
+ 							this.props.alllist.templatelist?
+ 							<img src={this.props.alllist.templatelist[19].items[2].imgurl} alt="pic"/>
+ 							:[]
+ 						}
+ 					</div>
+ 					<div className="eventsTop_left">
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[19].items[0].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[19].items[1].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 					</div>
+ 				</div>
+ 				<div className="eventsBottom">
+ 					{
+ 					 					this.props.alllist.templatelist?
+ 					 					<ul>
+ 					 						{
+ 					 							this.props.alllist.templatelist[20].items.map((item)=>{
+ 					 								return(
+ 					 									<li  key={item.itemid} className="eventsBottom_li">
+ 					 										<img src={item.imgurl} alt="pic"/>
+ 					 									</li>
+ 					 								)
+ 					 							})
+ 					 						}
+ 					 					</ul>:[]
+ 					 				}
+ 				</div>
+ 			</div>
+ 			{/*时尚鞋靴*/}
+ 			{/*运动达人*/}
+			<div className="tong">
+				{
+					this.props.alllist.templatelist?
+					<img src={this.props.alllist.templatelist[24].items[0].imgurl} alt="pic"/>
+					:[]
+				}
+			</div>
+ 			<div className="events">
+ 				<div className="eventsTop">
+
+ 					<div className="eventsTop_right">
+ 						{
+ 							this.props.alllist.templatelist?
+ 							<img src={this.props.alllist.templatelist[25].items[2].imgurl} alt="pic"/>
+ 							:[]
+ 						}
+ 					</div>
+ 					<div className="eventsTop_left">
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[25].items[0].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 							{
+ 								this.props.alllist.templatelist?
+ 								<img src={this.props.alllist.templatelist[25].items[1].imgurl} alt="pic"/>
+ 								:[]
+ 							}
+ 						
+ 					</div>
+ 				</div>
+ 				<div className="eventsBottom">
+ 					{
+ 					 					this.props.alllist.templatelist?
+ 					 					<ul>
+ 					 						{
+ 					 							this.props.alllist.templatelist[26].items.map((item)=>{
+ 					 								return(
+ 					 									<li  key={item.itemid} className="eventsBottom_li">
+ 					 										<img src={item.imgurl} alt="pic"/>
+ 					 									</li>
+ 					 								)
+ 					 							})
+ 					 						}
+ 					 					</ul>:[]
+ 					 				}
+ 				</div>
+ 			</div>
+ 			{/*运动达人*/}
+			{/*精选好货*/}
+			<div className="tong">
+				{
+					this.props.alllist.templatelist?
+					<img src={this.props.alllist.templatelist[31].items[0].imgurl} alt="pic"/>
+					:[]
+				}
+			</div>
+ 			<div className="xie">
+ 					{
+		            		this.props.alllist.templatelist?
+
+			            	<div>
+				            	{
+			            		this.props.alllist.templatelist.map((item,index)=>{
+			            			if(index>=32&index<73){
+										{
+											item.items.map((val)=>{
+												console.log(val.imgurl)
+			            						return <img src={val.imgurl}/>
+
+						            			
+					            			})
+					            		}
+
+			            			}
+
+			            		})
+			            	}
+			            	</div>:[]
+	           		}
+ 				
+ 			</div>
+ 			{/*精选好货*/}
 		</div>
 	}
 }
